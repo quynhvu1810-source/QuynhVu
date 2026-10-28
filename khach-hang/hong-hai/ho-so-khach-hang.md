@@ -54,6 +54,14 @@ Có hai khâu trọng tâm:
 7. NVL chính là những gì (vải màn, viền, chỉ, bao bì)? Mua từ ai, thời gian giao bao lâu?
 8. Có mấy kho (NVL, bán thành phẩm, thành phẩm)? Có kho ở chi nhánh hay tỉnh khác không?
 
+### 0.5a. Đối thủ: MISA và Ecount
+
+CEO đang tìm hiểu cả **MISA** và **Ecount**.
+- **Ecount:** ERP đám mây của Hàn Quốc, có văn phòng tại TP.HCM từ 2014. Gồm kho (mã vạch, lô/serial), sản xuất (BOM, MPS, lệnh sản xuất) và kế toán trong một hệ thống. Giá công bố khoảng 55 USD/tháng, quảng cáo không giới hạn người dùng (cần xác minh giá tại Việt Nam).
+- **MISA AMIS:** có AMIS Sản xuất (định mức theo sản phẩm, tính nhu cầu vật tư khi phát lệnh, theo dõi tiến độ) liên thông Kho, Mua hàng, Bán hàng, Kế toán. Báo giá khách nhận khoảng 140 triệu/năm cho gói 2 năm.
+- **Rủi ro:** nhu cầu cốt lõi của Hồng Hải (tồn kho, giữ hàng, định mức NVL, kế hoạch sản xuất) đúng là thế mạnh của hai ERP này. Cần presales xác nhận Base Inventory làm được định mức NVL, giữ hàng theo đơn, tính nhu cầu NVL trước khi cam kết.
+- **Lợi thế của Base cần chứng minh:** quy trình tự cấu hình (BPM), giao nhận và lương khoán công nhân, lương ngày công văn phòng, phê duyệt, thay Zalo trong điều hành, màn hình CEO trên điện thoại.
+
 ### 0.5. Cần chỉnh lại trong deck và tài liệu
 - Demo hiện dùng đơn FOB áo polo (PL-M2630), cần đổi sang kịch bản màn sản xuất tồn kho, bán cho nhà phân phối.
 - Slide bài toán, chuỗi giá trị, giải pháp, luồng 3 quy trình: chuyển trọng tâm sang tồn kho thành phẩm, kế hoạch sản xuất, định mức NVL, công lương.
