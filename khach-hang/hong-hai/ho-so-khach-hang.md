@@ -1,7 +1,54 @@
 # Hồ sơ khách hàng: Công ty CP Dệt và May Hồng Hải
 
-> Cập nhật: 27/10/2026 · Người phụ trách: Quỳnh Vũ (Base Enterprise)
-> Buổi làm việc tiếp theo: **14:30 – 15:30, 28/10/2026 · Online qua Google Meet**
+> Cập nhật: 28/10/2026 · Người phụ trách: Quỳnh Vũ (Base Enterprise)
+> Buổi làm việc: **14:30 – 15:30, 28/10/2026 · Online qua Google Meet**
+
+## 0. Cập nhật sau buổi làm việc 28/10/2026
+
+Khách đã xác nhận mô hình kinh doanh. **Hồng Hải may màn, tự sản xuất và làm thương mại, bán cho các nhà phân phối trên cả nước.** Mô hình này thuộc nhóm *thiết kế lưu kho* (sản xuất để tồn kho, có bổ sung theo đơn), không phải gia công hay FOB như giả thuyết ban đầu. Từ mục 1 trở đi là phân tích trước buổi họp; khi hai phần khác nhau, lấy theo mục 0.
+
+### 0.1. Nhu cầu khách nêu
+
+| Bộ phận | Nhu cầu | Ý nghĩa |
+| --- | --- | --- |
+| Sản xuất | Theo dõi sản phẩm đang ở khâu nào | Cần thấy tiến độ theo công đoạn của từng lệnh sản xuất |
+| Kinh doanh | Kiểm tra kho có hàng không. Có thì giữ hàng cho khách (bên A); không có thì làm lệnh đặt hàng cho sản xuất | Cần xem tồn kho tức thời, giữ hàng theo đơn, tự sinh lệnh sản xuất cho phần thiếu |
+| Kinh doanh | Dự tính tháng sau bán bao nhiêu thì tháng trước phải sản xuất để tồn | Cần lập kế hoạch sản xuất theo dự báo bán |
+| Kho | Biết mỗi mặt hàng tốn bao nhiêu nguyên vật liệu (định mức) và kho còn đủ NVL không | Cần định mức NVL (BOM) cho từng mã và đối chiếu với tồn NVL |
+| Công lương | Giao việc cho công nhân may; kiểm soát họ nhận hàng gì, sau khi nhận xong thì chuyển… | Cần phiếu giao nhận bán thành phẩm và tính lương theo sản phẩm. *Ghi chú gốc bị cắt ở đây, cần bổ sung* |
+
+### 0.2. Chuỗi giá trị đã xác nhận
+
+Dự báo bán (Kinh doanh) → Kế hoạch sản xuất tồn kho → Kiểm tra NVL theo định mức → Mua NVL nếu thiếu → **Giao bán thành phẩm cho công nhân may (công lương)** → Theo dõi công đoạn → QC → **Nhập kho thành phẩm** → Nhà phân phối đặt hàng → Kiểm tồn, giữ hàng hoặc tự sinh lệnh sản xuất → Giao hàng, công nợ
+
+Có hai khâu trọng tâm:
+- **Tồn kho thành phẩm:** đúng như mô hình thiết kế lưu kho.
+- **Công lương:** kiểm soát hàng phát cho công nhân may và tính lương theo sản phẩm.
+
+### 0.3. Giải pháp điều chỉnh
+
+| Nhu cầu | Giải pháp Base | Cách chạy |
+| --- | --- | --- |
+| Kiểm tồn, giữ hàng cho nhà phân phối | Base Inventory + CRM/Sales | Kinh doanh tạo đơn → hệ thống hiện tồn khả dụng → đủ thì giữ hàng cho đơn; thiếu thì tự tạo lệnh sản xuất cho phần thiếu |
+| Kế hoạch sản xuất tồn kho | BPM (quy trình lập kế hoạch tháng) + báo cáo | Số cần sản xuất = dự báo bán tháng sau + tồn an toàn − tồn hiện có − hàng đang sản xuất |
+| Định mức NVL, kiểm NVL | Inventory (định mức theo mã) + Request (đề nghị mua) | Khi tạo lệnh, hệ thống tính NVL cần theo định mức, so với tồn; thiếu thì sinh đề nghị mua |
+| Theo dõi công đoạn | BPM (lệnh sản xuất theo công đoạn) | Mỗi lệnh có các bước, ai đang giữ, còn bao nhiêu |
+| Công lương | BPM (phiếu giao nhận cho công nhân) + Payroll | Phát bán thành phẩm theo phiếu → công nhân trả hàng → QC đạt → tự cộng sản lượng vào lương sản phẩm |
+
+### 0.4. Cần hỏi tiếp
+
+1. Hoàn thiện ý về công lương: "sau khi nhận xong chuyển…" sang đâu? Trả lại xưởng, chuyển công đoạn khác hay QC?
+2. Công nhân may làm tại xưởng hay nhận hàng về nhà (gia công ngoài)? Bao nhiêu người?
+3. Đơn giá công tính theo sản phẩm hay theo công đoạn? Hàng lỗi có bị trừ không?
+4. Có bao nhiêu mã màn (kích thước, chất liệu, màu)? Đã có định mức NVL cho từng mã chưa?
+5. Có bao nhiêu nhà phân phối? Dự báo bán hiện làm thế nào, ai làm?
+6. Giữ hàng cho nhà phân phối tối đa bao lâu? Hai đơn cùng cần một mã thì ưu tiên thế nào?
+7. NVL chính là những gì (vải màn, viền, chỉ, bao bì)? Mua từ ai, thời gian giao bao lâu?
+8. Có mấy kho (NVL, bán thành phẩm, thành phẩm)? Có kho ở chi nhánh hay tỉnh khác không?
+
+### 0.5. Cần chỉnh lại trong deck và tài liệu
+- Demo hiện dùng đơn FOB áo polo (PL-M2630), cần đổi sang kịch bản màn sản xuất tồn kho, bán cho nhà phân phối.
+- Slide bài toán, chuỗi giá trị, giải pháp, luồng 3 quy trình: chuyển trọng tâm sang tồn kho thành phẩm, kế hoạch sản xuất, định mức NVL, công lương.
 
 ## 1. Tóm tắt
 
