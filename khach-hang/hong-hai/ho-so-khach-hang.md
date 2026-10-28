@@ -17,6 +17,12 @@ Khách đã xác nhận mô hình kinh doanh. **Hồng Hải may màn, tự sả
 | Kho | Biết mỗi mặt hàng tốn bao nhiêu nguyên vật liệu (định mức) và kho còn đủ NVL không | Cần định mức NVL (BOM) cho từng mã và đối chiếu với tồn NVL |
 | Công lương | Giao việc cho công nhân may; kiểm soát họ nhận hàng gì, sau khi nhận xong thì chuyển… | Cần phiếu giao nhận bán thành phẩm và tính lương theo sản phẩm. *Ghi chú gốc bị cắt ở đây, cần bổ sung* |
 
+**Cách tính lương (khách xác nhận):**
+- **Công nhân may:** lương khoán, tính theo sản phẩm hoặc khối lượng hoàn thành.
+- **Khối văn phòng:** lương theo ngày công.
+
+Như vậy Payroll cần **hai bảng lương**. Bảng khoán lấy số lượng từ phiếu giao nhận và QC trên BPM. Bảng ngày công lấy dữ liệu chấm công từ Timesheet (Checkin).
+
 ### 0.2. Chuỗi giá trị đã xác nhận
 
 Dự báo bán (Kinh doanh) → Kế hoạch sản xuất tồn kho → Kiểm tra NVL theo định mức → Mua NVL nếu thiếu → **Giao bán thành phẩm cho công nhân may (công lương)** → Theo dõi công đoạn → QC → **Nhập kho thành phẩm** → Nhà phân phối đặt hàng → Kiểm tồn, giữ hàng hoặc tự sinh lệnh sản xuất → Giao hàng, công nợ
@@ -33,13 +39,15 @@ Có hai khâu trọng tâm:
 | Kế hoạch sản xuất tồn kho | BPM (quy trình lập kế hoạch tháng) + báo cáo | Số cần sản xuất = dự báo bán tháng sau + tồn an toàn − tồn hiện có − hàng đang sản xuất |
 | Định mức NVL, kiểm NVL | Inventory (định mức theo mã) + Request (đề nghị mua) | Khi tạo lệnh, hệ thống tính NVL cần theo định mức, so với tồn; thiếu thì sinh đề nghị mua |
 | Theo dõi công đoạn | BPM (lệnh sản xuất theo công đoạn) | Mỗi lệnh có các bước, ai đang giữ, còn bao nhiêu |
-| Công lương | BPM (phiếu giao nhận cho công nhân) + Payroll | Phát bán thành phẩm theo phiếu → công nhân trả hàng → QC đạt → tự cộng sản lượng vào lương sản phẩm |
+| Lương khoán công nhân may | BPM (phiếu giao nhận cho công nhân) + Payroll | Phát bán thành phẩm theo phiếu → công nhân trả hàng → QC đạt → lương khoán = số lượng đạt × đơn giá khoán, tự đổ vào bảng lương tháng |
+| Lương ngày công văn phòng | Timesheet (chấm công) + Payroll | Chấm công trên điện thoại hoặc máy chấm công → tổng ngày công → lương = lương ngày × số ngày công + phụ cấp |
 
 ### 0.4. Cần hỏi tiếp
 
 1. Hoàn thiện ý về công lương: "sau khi nhận xong chuyển…" sang đâu? Trả lại xưởng, chuyển công đoạn khác hay QC?
 2. Công nhân may làm tại xưởng hay nhận hàng về nhà (gia công ngoài)? Bao nhiêu người?
-3. Đơn giá công tính theo sản phẩm hay theo công đoạn? Hàng lỗi có bị trừ không?
+3. Đơn giá khoán tính cho cả sản phẩm hay cho từng công đoạn? Mỗi mã màn có đơn giá khác nhau không? Hàng lỗi có bị trừ hoặc phải sửa lại miễn phí không? Kỳ trả lương khoán là tháng hay theo đợt?
+3b. Văn phòng chấm công bằng gì (máy vân tay, giấy, Excel)? Có tính làm thêm giờ, đi muộn, nghỉ phép không?
 4. Có bao nhiêu mã màn (kích thước, chất liệu, màu)? Đã có định mức NVL cho từng mã chưa?
 5. Có bao nhiêu nhà phân phối? Dự báo bán hiện làm thế nào, ai làm?
 6. Giữ hàng cho nhà phân phối tối đa bao lâu? Hai đơn cùng cần một mã thì ưu tiên thế nào?
