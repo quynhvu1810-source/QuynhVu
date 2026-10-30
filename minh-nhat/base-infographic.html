@@ -10,14 +10,14 @@
     --brand-900: #0D3C7A;
     --brand-50: #EAF4FD;
     --brand-100: #D3E7FA;
-    --ink: #13294B;
-    --text: #2B3A55;
-    --muted: #5B6B85;
+    --ink: #0A1F44;
+    --text: #14213D;
+    --muted: #33415C;
     --line: #E1EBF6;
     --bg: #F3F8FD;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  body { font-family: "Inter", sans-serif; font-weight: 500; text-rendering: geometricPrecision; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
   .canvas { width: 1536px; background: var(--bg); display: flex; flex-direction: column; }
   svg { display: block; }
   .ic { width: 26px; height: 26px; color: var(--brand); flex: none; }
@@ -29,8 +29,8 @@
   header .titles { flex: 1; }
   .kicker { font-size: 17px; font-weight: 700; letter-spacing: .06em; color: var(--brand); text-transform: uppercase; }
   h1 { font-size: 34px; font-weight: 800; color: var(--ink); letter-spacing: -.015em; margin-top: 6px; }
-  .tagline { font-size: 18px; color: var(--brand-700); margin-top: 6px; }
-  .loc { display: flex; align-items: center; gap: 10px; background: var(--brand-50); color: var(--ink); font-size: 19px; font-weight: 600; padding: 14px 26px; border-radius: 999px; }
+  .tagline { font-size: 18px; font-weight: 600; color: var(--brand-700); margin-top: 6px; }
+  .loc { display: flex; align-items: center; gap: 10px; background: var(--brand-50); color: var(--ink); font-size: 19px; font-weight: 700; padding: 14px 26px; border-radius: 999px; }
   .loc .ic { width: 24px; height: 24px; }
 
   main { flex: 1; padding: 22px 32px 0; display: grid; grid-template-rows: auto auto; gap: 18px; }
@@ -38,13 +38,13 @@
   .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px 22px; }
   .item { display: flex; gap: 14px; }
   .item + .item { margin-top: 26px; }
-  .item h3 { font-size: 17px; font-weight: 700; color: var(--brand-700); margin-bottom: 6px; }
-  .item p { font-size: 16px; line-height: 1.5; color: var(--text); }
-  .big { font-size: 30px !important; font-weight: 800; color: var(--ink) !important; letter-spacing: -.01em; line-height: 1.1 !important; }
+  .item h3 { font-size: 18px; font-weight: 800; color: var(--brand-700); margin-bottom: 6px; }
+  .item p { font-size: 16.5px; font-weight: 500; line-height: 1.5; color: var(--text); }
+  .big { font-size: 32px !important; font-weight: 800 !important; color: var(--ink) !important; letter-spacing: -.01em; line-height: 1.1 !important; }
   .big small { font-size: 17px; font-weight: 600; color: var(--muted); margin-left: 4px; letter-spacing: 0; }
 
   .checks { list-style: none; display: grid; gap: 10px; margin-top: 4px; }
-  .checks li { display: flex; gap: 10px; font-size: 15.5px; line-height: 1.45; }
+  .checks li { display: flex; gap: 10px; font-size: 16px; font-weight: 500; line-height: 1.45; }
   .checks li svg { width: 18px; height: 18px; color: var(--brand); flex: none; margin-top: 2px; }
   .sep { height: 1px; background: var(--line); margin: 20px -22px; }
 
@@ -53,7 +53,7 @@
   .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .thumb { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; display: flex; flex-direction: column; gap: 8px; }
   .thumb div { flex: 1; border-radius: 10px; background-size: cover; background-position: center; }
-  .thumb span { font-size: 14px; font-weight: 600; color: var(--ink); text-align: center; line-height: 1.3; }
+  .thumb span { font-size: 14.5px; font-weight: 700; color: var(--ink); text-align: center; line-height: 1.3; }
 
   .side { display: grid; grid-template-rows: auto 1fr; gap: 16px; }
   .tools { display: flex; gap: 12px; margin-top: 14px; }
@@ -72,12 +72,12 @@
     display: flex; flex-direction: column; justify-content: space-between;
   }
   .banner .copy { padding: 30px 34px 0; }
-  .banner .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; letter-spacing: .12em; opacity: .9; }
+  .banner .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 800; letter-spacing: .12em; }
   .banner .eyebrow::before { content: ""; width: 28px; height: 2px; background: #fff; opacity: .8; }
   .banner h2 { font-size: 34px; line-height: 1.2; font-weight: 800; margin-top: 12px; letter-spacing: -.01em; }
-  .banner p { font-size: 18px; margin-top: 10px; opacity: .92; }
+  .banner p { font-size: 19px; font-weight: 600; margin-top: 10px; }
   .pills { display: grid; grid-template-columns: repeat(4, 1fr); background: rgba(10,40,90,.55); border-top: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(6px); }
-  .pill { padding: 18px 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; text-align: center; line-height: 1.3; }
+  .pill { padding: 18px 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; text-align: center; line-height: 1.3; }
   .pill + .pill { border-left: 1px solid rgba(255,255,255,.14); }
   .pill svg { width: 30px; height: 30px; color: #fff; }
 
@@ -88,15 +88,15 @@
   .prob { background: var(--brand-50); border-radius: 14px; padding: 18px 18px; }
   .prob .head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
   .prob .num { width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 800; font-size: 17px; display: grid; place-items: center; flex: none; }
-  .prob h3 { font-size: 17px; font-weight: 700; color: var(--brand-700); line-height: 1.35; }
+  .prob h3 { font-size: 17.5px; font-weight: 800; color: var(--brand-700); line-height: 1.35; }
   .prob ul { list-style: none; display: grid; gap: 8px; }
-  .prob li { display: flex; gap: 10px; font-size: 15px; line-height: 1.4; color: var(--text); }
+  .prob li { display: flex; gap: 10px; font-size: 15.5px; font-weight: 500; line-height: 1.4; color: var(--text); }
   .prob li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); flex: none; margin-top: 7px; }
 
   footer { height: 74px; background: #fff; border-top: 1px solid var(--line); padding: 0 48px; display: flex; align-items: center; gap: 24px; }
   footer img { height: 32px; }
   footer .divider { width: 1px; height: 30px; background: var(--line); }
-  footer span { font-size: 17px; color: var(--muted); }
+  footer span { font-size: 17px; font-weight: 600; color: var(--muted); }
   footer .url { margin-left: auto; font-weight: 700; color: var(--brand); }
 </style>
 </head>
